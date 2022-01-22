@@ -23,9 +23,8 @@
 	},
 	"homepage": "",
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "^1.0.0-next.14",
-		"@sveltejs/adapter-node": "^1.0.0-next.66",
-		"@sveltejs/kit": "next",
+		"@sveltejs/adapter-vercel": "^1.0.0-next.39",
+		"@sveltejs/kit": "^1.0.0-next.240",
 		"@types/node": "^17.0.10",
 		"@typescript-eslint/eslint-plugin": "^5.10.0",
 		"@typescript-eslint/parser": "^5.10.0",
