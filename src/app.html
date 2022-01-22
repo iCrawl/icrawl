@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="My space on the web" />
+		<meta name="msapplication-TileColor" content="#1f1f1f" />
+		<meta name="theme-color" content="#1f1f1f" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Crawl | Noel</title>
+		<link rel="apple-touch-icon" sizes="180x180" href="%svelte.assets%/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="%svelte.assets%/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="%svelte.assets%/favicon-16x16.png" />
+		<link rel="manifest" href="%svelte.assets%/site.webmanifest" />
+		<link rel="mask-icon" href="%svelte.assets%/safari-pinned-tab.svg" color="#1f1f1f" />
+		<link rel="canonical" href="https://crawl.gg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+		%svelte.head%
+	</head>
+	<body>
+		<script>
+			(() => {
+				const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+				const persistedColorPreference = localStorage.getItem('theme') || 'auto';
+				if (persistedColorPreference === 'dark' || (prefersDarkMode && persistedColorPreference !== 'light')) {
+					document.documentElement.classList.toggle('dark', true);
+				}
+			})();
+		</script>
+		<div id="svelte">%svelte.body%</div>
+	</body>
+</html>
