@@ -31,3 +31,4 @@ dist/
 .DS_Store
 .turbo
 tsconfig.tsbuildinfo
+.vercel_build_output

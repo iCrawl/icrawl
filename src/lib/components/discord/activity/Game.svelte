@@ -26,7 +26,9 @@
 			<div class="inline-block relative">
 				<img
 					class="inline-block rounded-md"
-					src={`https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.large_image}.png`}
+					src={`https://cdn.discordapp.com/app-assets/${activity.application_id ?? ''}/${
+						activity.assets.large_image
+					}.png`}
 					alt={activity.assets?.large_text}
 					height={60}
 					width={60}
@@ -34,7 +36,9 @@
 				{#if activity.assets?.small_image}
 					<img
 						class="absolute h-6 w-6 -bottom-1 -right-1 border-[4px] border-dark-500 rounded-full"
-						src={`https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.small_image}.png`}
+						src={`https://cdn.discordapp.com/app-assets/${activity.application_id ?? ''}/${
+							activity.assets.small_image
+						}.png`}
 						alt={activity.assets.small_text}
 						width={24}
 						height={24}

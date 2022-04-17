@@ -1,8 +1,8 @@
-import type { LanyardData } from '$lib/lanyard';
 import type { Readable } from 'svelte/store';
 import { derived } from 'svelte/store';
+import type { LanyardData } from '$lib/lanyard';
 
-export function status(data: Readable<LanyardData | undefined>) {
+export function status(data: Readable<Partial<LanyardData> | undefined>) {
 	return derived(data, ($data) => {
 		if ($data?.discord_status === 'dnd') {
 			return 'bg-red-500';

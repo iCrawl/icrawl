@@ -1,8 +1,7 @@
 <script lang="ts">
-	import { lanyard } from '$lib/lanyard';
-
-	import DiscordAvatar from './Avatar.svelte';
 	import DiscordActivities from './Activities.svelte';
+	import DiscordAvatar from './Avatar.svelte';
+	import { lanyard } from '$lib/lanyard';
 
 	const data$ = lanyard('81440962496172032');
 </script>
@@ -16,11 +15,15 @@
 				</div>
 				<div>
 					<h1 class="font-sans antialiased font-medium text-xl">
-						{$data$.discord_user.username}<span class="text-gray-400">#{$data$.discord_user.discriminator}</span>
+						{#if $data$.discord_user}
+							{$data$.discord_user.username}<span class="text-gray-400">#{$data$.discord_user.discriminator}</span>
+						{:else}
+							Loading user info...
+						{/if}
 					</h1>
 				</div>
 			</div>
-			{#if $data$.activities.length}
+			{#if $data$.activities?.length}
 				<div class="mt-4">
 					<DiscordActivities {data$} />
 				</div>

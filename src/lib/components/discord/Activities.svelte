@@ -1,13 +1,12 @@
 <script lang="ts">
 	import type { Readable } from 'svelte/store';
-	import type { LanyardData } from '$lib/lanyard';
+	import { activities } from './activities';
+	import Custom from './activity/Custom.svelte';
 	import Game from './activity/Game.svelte';
 	import Spotify from './activity/Spotify.svelte';
-	import Custom from './activity/Custom.svelte';
+	import type { LanyardData } from '$lib/lanyard';
 
-	import { activities } from './activities';
-
-	export let data$: Readable<LanyardData>;
+	export let data$: Readable<Partial<LanyardData>>;
 
 	const activities$ = activities(data$);
 </script>

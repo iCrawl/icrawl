@@ -2,7 +2,7 @@
 	import type { Readable } from 'svelte/store';
 	import type { LanyardData } from '$lib/lanyard';
 
-	export let data$: Readable<LanyardData>;
+	export let data$: Readable<Partial<LanyardData>>;
 </script>
 
 <div>

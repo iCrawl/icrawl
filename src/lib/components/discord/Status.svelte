@@ -1,10 +1,9 @@
 <script lang="ts">
 	import type { Readable } from 'svelte/store';
+	import { status } from './status';
 	import type { LanyardData } from '$lib/lanyard';
 
-	import { status } from './status';
-
-	export let data$: Readable<LanyardData | undefined>;
+	export let data$: Readable<Partial<LanyardData> | undefined>;
 
 	const status$ = status(data$);
 </script>

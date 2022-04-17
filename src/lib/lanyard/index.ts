@@ -1,5 +1,5 @@
-import { browser } from '$app/env';
 import { readable } from 'svelte/store';
+import { browser } from '$app/env';
 
 enum LanyardWebSocketOpcode {
 	EVENT = 0,
@@ -92,7 +92,7 @@ export type LanyardRestResponse = {
 } & LanyardRestPossibleResponse;
 
 export function lanyard(id: string) {
-	return readable<LanyardData>(undefined, (set) => {
+	return readable<Partial<LanyardData>>({}, (set) => {
 		let ws: WebSocket;
 		let interval: NodeJS.Timer;
 		if (browser) {
