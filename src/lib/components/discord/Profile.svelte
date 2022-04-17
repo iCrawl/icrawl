@@ -18,7 +18,7 @@
 						{#if $data$.discord_user}
 							{$data$.discord_user.username}<span class="text-gray-400">#{$data$.discord_user.discriminator}</span>
 						{:else}
-							Loading user info...
+							Crawl<span class="text-gray-400">#0002</span>
 						{/if}
 					</h1>
 				</div>

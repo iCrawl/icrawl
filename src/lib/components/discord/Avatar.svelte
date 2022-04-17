@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { Readable } from 'svelte/store';
 	import DiscordStatus from './Status.svelte';
-	import LoaderIcon from '../icons/Loader.svelte';
 	import type { LanyardData } from '$lib/lanyard';
 
 	export let data$: Readable<Partial<LanyardData>>;
@@ -18,8 +17,8 @@
 			height={64}
 			width={64}
 		/>
-		<DiscordStatus {data$} />
 	{:else}
-		<LoaderIcon />
+		<img src="/img/81c0df2befe565b05018da6b026babb0.png" alt="" class="rounded-full" height={64} width={64} />
 	{/if}
+	<DiscordStatus {data$} />
 </div>
