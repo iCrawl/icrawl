@@ -1,5 +1,4 @@
 {
-	"extends": "./.svelte-kit/tsconfig.json",
 	"compilerOptions": {
 		// Type Checking
 		"allowUnreachableCode": false,
@@ -39,14 +38,15 @@
 		// Language and Environment
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
-		"lib": ["ESNext", "DOM"],
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
 		"target": "ES2020",
 		"useDefineForClassFields": true,
 
+		"types": ["@astrojs/image/client"],
+
 		"paths": {
-			"$lib": ["src/lib"],
-			"$lib/*": ["src/lib/*"]
+			"~/*": ["src/*"]
 		}
 	},
-	"include": ["src/**/*.ts", "src/**/*.svelte"]
+	"include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.astro"]
 }

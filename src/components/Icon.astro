@@ -1,0 +1,9 @@
+---
+import { clsx } from "clsx";
+
+type Props = { class: string; icon: string };
+
+const { class: _class, icon } = Astro.props;
+---
+
+<span aria-hidden="true" class={clsx(["inline-block", _class, icon])}></span>

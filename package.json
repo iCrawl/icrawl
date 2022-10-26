@@ -1,17 +1,15 @@
 {
 	"name": "icrawl",
 	"version": "0.0.0",
-	"description": "",
+	"description": "I write code.",
 	"private": true,
 	"scripts": {
-		"dev": "svelte-kit dev",
-		"build": "svelte-kit build",
-		"package": "svelte-kit package",
-		"preview": "svelte-kit preview",
-		"check": "svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
-		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. . && eslint --ignore-path .gitignore . --fix"
+		"check": "astro check && tsc --noEmit",
+		"build": "astro build",
+		"dev": "astro dev",
+		"preview": "astro preview",
+		"lint": "prettier --check . && eslint src --ext .mjs,.js,.cjs,.ts,.tsx,.astro --format=pretty",
+		"format": "prettier --write . && eslint src --ext .mjs,.js,.cjs,.ts,.tsx,.astro --fix --format=pretty"
 	},
 	"type": "module",
 	"repository": {
@@ -22,26 +20,34 @@
 		"url": "https://github.com/iCrawl/icrawl/issues"
 	},
 	"homepage": "",
+	"dependencies": {
+		"clsx": "^1.2.1",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
 	"devDependencies": {
-		"@sveltejs/adapter-vercel": "^1.0.0-next.50",
-		"@sveltejs/kit": "^1.0.0-next.326",
-		"@types/node": "^17.0.31",
-		"@typescript-eslint/eslint-plugin": "^5.22.0",
-		"@typescript-eslint/parser": "^5.22.0",
+		"@astrojs/image": "^0.10.0",
+		"@astrojs/prefetch": "^0.0.8",
+		"@astrojs/react": "^1.2.0",
+		"@iconify-json/fa6-brands": "^1.1.6",
+		"@iconify-json/octicon": "^1.1.20",
+		"@types/react": "^18.0.21",
+		"@types/react-dom": "^18.0.6",
+		"@unocss/cli": "^0.45.29",
+		"@unocss/reset": "^0.45.29",
+		"astro": "^1.5.0",
+		"astro-compress": "^1.0.12",
+		"astro-critters": "^1.0.5",
 		"eslint": "^8.15.0",
-		"eslint-config-marine": "^9.4.1",
-		"eslint-config-prettier": "^8.5.0",
-		"eslint-plugin-import": "^2.26.0",
-		"eslint-plugin-svelte3": "^4.0.0",
+		"eslint-config-neon": "^0.1.38",
+		"eslint-formatter-pretty": "^4.1.0",
 		"prettier": "^2.6.2",
-		"prettier-plugin-svelte": "^2.7.0",
-		"svelte": "^3.48.0",
-		"svelte-check": "^2.7.0",
-		"svelte-preprocess": "^4.10.6",
-		"svelte-typewriter": "^3.0.0-alpha.11",
-		"tslib": "^2.4.0",
+		"prettier-plugin-astro": "^0.5.5",
+		"prettier-plugin-tailwindcss": "^0.1.13",
+		"sharp": "^0.31.1",
 		"typescript": "^4.6.4",
-		"vite-plugin-windicss": "^1.8.4",
-		"windicss": "^3.5.1"
-	}
+		"unocss": "^0.45.29",
+		"vercel": "^28.4.10"
+	},
+	"packageManager": "yarn@3.2.4"
 }

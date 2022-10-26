@@ -1,0 +1,9 @@
+---
+type Props = { class?: string | undefined; href: string; label: string };
+
+const { class: _class, href, label } = Astro.props;
+---
+
+<a aria-label={label} class={_class} href={href} rel="noopener noreferrer" target="_blank" title={label}>
+	<slot />
+</a>

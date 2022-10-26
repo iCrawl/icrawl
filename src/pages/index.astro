@@ -1,0 +1,38 @@
+---
+import "../styles/main.css";
+import "../styles/inter.css";
+
+import ExternalLink from "../components/ExternalLink.astro";
+import Icon from "../components/Icon.astro";
+import DocumentLayout from "../layouts/Document.astro";
+---
+
+<DocumentLayout>
+	<div class="flex flex-col grow m-auto place-content-center max-w-2xl px-8">
+		<main>
+			<section>
+				<h1 class="text-6xl font-bold leading-tight">Hey, I'm <span class="text-sky">Crawl</span>!</h1>
+				<h2 class="text-2xl font-light">Software Developer</h2>
+			</section>
+		</main>
+		<footer>
+			<nav class="flex gap-4 mt-12">
+				<ExternalLink href="mailto:test@example.com" label="Email"
+					><Icon class="text-2xl" icon="i-octicon-mail" />
+				</ExternalLink>
+				<ExternalLink href="https://github.com/iCrawl" label="GitHub"
+					><Icon class="text-2xl" icon="i-octicon-mark-github-16" />
+				</ExternalLink>
+				<ExternalLink href="https://discord.gg/djs" label="Discord"
+					><Icon class="text-2xl" icon="i-fa6-brands-discord" />
+				</ExternalLink>
+				<ExternalLink href="https://twitter.com/iCrawlToGo" label="Twitter"
+					><Icon class="text-2xl" icon="i-fa6-brands-twitter" />
+				</ExternalLink>
+				<ExternalLink href="https://www.instagram.com/icrawltogo" label="Instagram"
+					><Icon class="text-2xl" icon="i-fa6-brands-instagram" />
+				</ExternalLink>
+			</nav>
+		</footer>
+	</div>
+</DocumentLayout>

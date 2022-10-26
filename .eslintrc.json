@@ -1,7 +1,23 @@
 {
-	"root": true,
-	"extends": ["marine/prettier/node", "marine/prettier/svelte"],
+	"extends": [
+		"neon/common",
+		"neon/browser",
+		"neon/node",
+		"neon/typescript",
+		"neon/react",
+		"neon/astro",
+		"neon/prettier"
+	],
 	"parserOptions": {
 		"project": "./tsconfig.eslint.json"
+	},
+	"ignorePatterns": ["**/dist/*"],
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	},
+	"rules": {
+		"react/jsx-filename-extension": [1, { "extensions": [".tsx", ".astro"] }]
 	}
 }
