@@ -1,5 +1,5 @@
-import { readable } from 'svelte/store';
-import { browser } from '$app/env';
+import { readable } from "svelte/store";
+import { browser } from "$app/env";
 
 enum LanyardWebSocketOpcode {
 	EVENT = 0,
@@ -8,7 +8,7 @@ enum LanyardWebSocketOpcode {
 	HEARTBEAT = 3,
 }
 
-export type LanyardWebSocketEvent = 'INIT_STATE' | 'PRESENCE_UPDATE';
+export type LanyardWebSocketEvent = "INIT_STATE" | "PRESENCE_UPDATE";
 
 export interface LanyardTimestamps {
 	start: number;
@@ -96,8 +96,8 @@ export function lanyard(id: string) {
 		let ws: WebSocket;
 		let interval: NodeJS.Timer;
 		if (browser) {
-			ws = new WebSocket('wss://api.lanyard.rest/socket');
-			ws.addEventListener('message', ({ data }: { data: string }) => {
+			ws = new WebSocket("wss://api.lanyard.rest/socket");
+			ws.addEventListener("message", ({ data }: { data: string }) => {
 				const { op, d } = JSON.parse(data) as LanyardWebSocketMessage;
 
 				switch (op) {
