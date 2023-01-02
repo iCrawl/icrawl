@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<link href="https://crawl.gg" rel="canonical" />
@@ -21,8 +22,9 @@
 		<title>Crawl | Noel</title>
 		<meta content="minimum-scale=1, initial-scale=1, width=device-width" name="viewport" />
 		<meta content="#181818" name="theme-color" />
+		%sveltekit.head%
 	</head>
-	<body class="dark:bg-dark-800 flex h-screen bg-white">
+	<body class="dark:bg-dark-800 flex h-screen bg-white" data-sveltekit-preload-data="hover">
 		<script is:inline>
 			function setTheme(prefersDarkMode, persistedColorPreference) {
 				if (persistedColorPreference === "dark" || (prefersDarkMode && persistedColorPreference !== "light")) {
@@ -42,6 +44,6 @@
 						.addEventListener("change", (ev) => setTheme(ev.matches, persistedColorPreference));
 			})();
 		</script>
-		<slot />
+		%sveltekit.body%
 	</body>
 </html>
