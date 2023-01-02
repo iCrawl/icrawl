@@ -89,6 +89,7 @@ out
 
 # Sveltekit build output
 .svelte-kit
+.vercel
 
 # Nuxt.js build / generate output
 .nuxt

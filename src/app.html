@@ -25,7 +25,7 @@
 		%sveltekit.head%
 	</head>
 	<body class="dark:bg-dark-800 flex h-screen bg-white" data-sveltekit-preload-data="hover">
-		<script is:inline>
+		<script>
 			function setTheme(prefersDarkMode, persistedColorPreference) {
 				if (persistedColorPreference === "dark" || (prefersDarkMode && persistedColorPreference !== "light")) {
 					document.documentElement.classList.toggle("dark", true);
