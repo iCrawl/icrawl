@@ -12,7 +12,8 @@
 		"dev": "vite dev",
 		"preview": "vite preview",
 		"lint": "prettier --check . && eslint src --ext .mjs,.js,.cjs,.ts,.tsx,.svelte --format=pretty",
-		"format": "prettier --write . && eslint src --ext .mjs,.js,.cjs,.ts,.tsx,.svelte --fix --format=pretty"
+		"format": "prettier --write . && eslint src --ext .mjs,.js,.cjs,.ts,.tsx,.svelte --fix --format=pretty",
+		"update": "yarn upgrade-interactive"
 	},
 	"type": "module",
 	"repository": {
@@ -36,7 +37,7 @@
 		"@unocss/reset": "^0.50.6",
 		"clsx": "^1.2.1",
 		"eslint": "^8.36.0",
-		"eslint-config-neon": "^0.1.40",
+		"eslint-config-neon": "^0.1.41",
 		"eslint-formatter-pretty": "^5.0.0",
 		"playwright": "^1.31.2",
 		"prettier": "^2.8.5",
@@ -50,5 +51,5 @@
 		"vite": "^4.2.1",
 		"vitest": "^0.29.7"
 	},
-	"packageManager": "yarn@3.3.1"
+	"packageManager": "yarn@3.5.0"
 }

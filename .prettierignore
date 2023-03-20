@@ -3,3 +3,6 @@ build/
 .svelte-kit/
 package/
 .vercel/
+dist/
+.yarn/
+static/
