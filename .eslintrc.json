@@ -4,12 +4,23 @@
 		"neon/browser",
 		"neon/node",
 		"neon/typescript",
-		"neon/svelte",
-		"neon/svelte-typescript",
+		"neon/react",
+		"neon/next",
+		"neon/edge",
+		"@unocss",
 		"neon/prettier"
 	],
 	"parserOptions": {
 		"project": "./tsconfig.eslint.json"
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	},
+	"rules": {
+		"react/react-in-jsx-scope": 0,
+		"react/jsx-filename-extension": [1, { "extensions": [".tsx"] }]
 	},
 	"ignorePatterns": ["**/dist/*"]
 }

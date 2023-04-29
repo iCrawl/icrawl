@@ -3,6 +3,5 @@
 	"useTabs": true,
 	"quoteProps": "as-needed",
 	"trailingComma": "all",
-	"endOfLine": "lf",
-	"overrides": [{ "files": "*.svelte", "options": { "parser": "svelte" } }]
+	"endOfLine": "lf"
 }

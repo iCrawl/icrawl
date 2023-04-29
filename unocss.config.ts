@@ -1,6 +1,11 @@
-import { defineConfig, presetIcons, presetUno } from "unocss";
+import { defineConfig, presetTypography, presetUno } from "unocss";
 
 export default defineConfig({
-	presets: [presetUno({ dark: "class" }), presetIcons()],
-	safelist: ["dark:bg-dark-800", "h-screen", "bg-white"],
+	theme: {
+		fontFamily: {
+			sans: "var(--font-inter)",
+			mono: "var(--font-mono)",
+		},
+	},
+	presets: [presetUno({ dark: "class" }), presetTypography()],
 });

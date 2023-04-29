@@ -135,3 +135,6 @@ dist
 
 # macOS
 .DS_Store
+
+# unocss
+unocss.css
