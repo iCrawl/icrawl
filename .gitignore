@@ -138,3 +138,6 @@ dist
 
 # unocss
 unocss.css
+
+# playwright
+test-results

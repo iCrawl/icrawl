@@ -9,3 +9,5 @@ build/
 .cache/
 .yarn
 .yarnrc.yml
+test-results
+unocss.css
