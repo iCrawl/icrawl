@@ -17,7 +17,7 @@ export default function Page() {
 				<nav className="mt-12 flex gap-4">
 					<a
 						aria-label="Email"
-						href="mailto:test@example.com"
+						href="mailto:buechler.noel@outlook.com"
 						rel="external noopener noreferrer"
 						target="_blank"
 						title="Email"
