@@ -1,22 +1,24 @@
 "use client";
 
-import type { Metadata } from "next";
-import { Providers } from "./providers";
+import type { Metadata, Viewport } from "next";
 import { inter } from "~/util/fonts";
+import { Providers } from "./providers";
 
 import "@unocss/reset/tailwind-compat.css";
 import "~/styles/global.css";
-import "~/styles/unocss.css";
+
+export const viewport: Viewport = {
+	themeColor: [
+		{ media: "(prefers-color-scheme: light)", color: "#f5f5f5" },
+		{ media: "(prefers-color-scheme: dark)", color: "#171717" },
+	],
+	colorScheme: "light dark",
+};
 
 export const metadata: Metadata = {
 	title: {
 		default: "crawl.gg",
 		template: "%s | crawl.gg",
-	},
-	viewport: {
-		minimumScale: 1,
-		initialScale: 1,
-		width: "device-width",
 	},
 	icons: {
 		other: [
@@ -42,12 +44,6 @@ export const metadata: Metadata = {
 
 	manifest: "/site.webmanifest",
 
-	themeColor: [
-		{ media: "(prefers-color-scheme: light)", color: "#f5f5f5" },
-		{ media: "(prefers-color-scheme: dark)", color: "#171717" },
-	],
-	colorScheme: "light dark",
-
 	appleWebApp: {
 		title: "crawl.gg",
 	},
@@ -65,7 +61,7 @@ export const metadata: Metadata = {
 	},
 };
 
-export default function GlobalError({ error }: { error: Error }) {
+export default function GlobalError({ error }: { readonly error: Error }) {
 	console.error(error);
 
 	return (
@@ -74,8 +70,8 @@ export default function GlobalError({ error }: { error: Error }) {
 				<Providers>
 					<main className="mx-auto max-w-2xl min-h-screen">
 						<div className="mx-auto max-w-lg min-h-screen flex flex-col place-content-center place-items-center gap-8 px-8 py-16 lg:px-6 lg:py-0">
-							<h1 className="text-[16rem] font-black leading-none md:text-[12rem]">500</h1>
-							<h2 className="text-[6rem] md:text-[3rem]">Error.</h2>
+							<h1 className="text-[9rem] font-black leading-none md:text-[12rem]">500</h1>
+							<h2 className="text-[2rem] md:text-[3rem]">Error.</h2>
 						</div>
 					</main>
 				</Providers>

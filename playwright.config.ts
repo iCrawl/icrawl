@@ -2,7 +2,7 @@ import { fileURLToPath } from "node:url";
 import type { PlaywrightTestConfig } from "@playwright/test";
 import { devices } from "@playwright/test";
 
-const PORT = process.env.PORT ?? 3_000;
+const PORT = process.env.PORT ?? 4_001;
 const baseURL = `http://localhost:${PORT}`;
 
 export default {

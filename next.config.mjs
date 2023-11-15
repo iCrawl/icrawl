@@ -7,11 +7,18 @@ const withBundleAnalyzer = bundleAnalyzer({
 export default withBundleAnalyzer({
 	reactStrictMode: true,
 	experimental: {
-		appDir: true,
+		typedRoutes: true,
+		ppr: true,
 	},
 	images: {
 		dangerouslyAllowSVG: true,
 		contentDispositionType: "attachment",
 		contentSecurityPolicy: "default-src 'self'; frame-src 'none'; sandbox;",
+	},
+	poweredByHeader: false,
+	logging: {
+		fetches: {
+			fullUrl: true,
+		},
 	},
 });

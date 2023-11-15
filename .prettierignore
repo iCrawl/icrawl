@@ -10,4 +10,4 @@ build/
 .yarn
 .yarnrc.yml
 test-results
-unocss.css
+next-env.d.ts
