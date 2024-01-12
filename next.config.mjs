@@ -7,7 +7,6 @@ const withBundleAnalyzer = bundleAnalyzer({
 export default withBundleAnalyzer({
 	reactStrictMode: true,
 	experimental: {
-		typedRoutes: true,
 		ppr: true,
 	},
 	images: {
