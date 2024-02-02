@@ -6,9 +6,9 @@ const withBundleAnalyzer = bundleAnalyzer({
 
 export default withBundleAnalyzer({
 	reactStrictMode: true,
-	experimental: {
-		ppr: true,
-	},
+	// experimental: {
+	// 	ppr: true,
+	// },
 	images: {
 		dangerouslyAllowSVG: true,
 		contentDispositionType: "attachment",
