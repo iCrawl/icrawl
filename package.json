@@ -29,7 +29,7 @@
 		"@icons-pack/react-simple-icons": "9.3.0",
 		"jotai": "^2.6.4",
 		"lucide-react": "^0.321.0",
-		"next": "^14.1.1-canary.28",
+		"next": "^14.1.1-canary.27",
 		"next-themes": "^0.2.1",
 		"overlayscrollbars": "^2.5.0",
 		"overlayscrollbars-react": "^0.5.4",
@@ -42,7 +42,7 @@
 		"zod": "^3.22.4"
 	},
 	"devDependencies": {
-		"@next/bundle-analyzer": "^14.1.1-canary.28",
+		"@next/bundle-analyzer": "^14.1.1-canary.27",
 		"@playwright/test": "^1.41.2",
 		"@testing-library/react": "^14.2.1",
 		"@testing-library/user-event": "^14.5.2",
