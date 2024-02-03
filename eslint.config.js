@@ -1,3 +1,5 @@
+import { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 import unocss from "@unocss/eslint-plugin";
 import common from "eslint-config-neon/flat/common.js";
 import edge from "eslint-config-neon/flat/edge.js";
@@ -20,7 +22,7 @@ const typeScriptRuleset = merge(...typescript, {
 		parserOptions: {
 			warnOnUnsupportedTypeScriptVersion: false,
 			allowAutomaticSingleRunInference: true,
-			project: ["tsconfig.eslint.json"],
+			project: [`${dirname(fileURLToPath(import.meta.url))}/tsconfig.eslint.json`],
 		},
 	},
 	rules: {
@@ -36,6 +38,14 @@ const typeScriptRuleset = merge(...typescript, {
 				},
 			},
 		],
+	},
+	settings: {
+		"import/resolver": {
+			typescript: {
+				alwaysTryTypes: true,
+				project: [`${dirname(fileURLToPath(import.meta.url))}/tsconfig.eslint.json`],
+			},
+		},
 	},
 });
 
