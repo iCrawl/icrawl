@@ -1,7 +1,7 @@
 import {
 	SiDiscord as Discord,
 	SiGithub as GitHub,
-	SiTwitter as Twitter,
+	SiX as Twitter,
 	SiInstagram as Instagram,
 } from "@icons-pack/react-simple-icons";
 import { Send } from "lucide-react";
@@ -10,7 +10,7 @@ import { Lanyard } from "~/components/lanyard/Lanyard";
 export default async function Page() {
 	return (
 		<div className="min-h-screen">
-			<div className="mx-auto max-w-2xl min-h-screen flex flex-col place-content-center px-8 py-16 lg:px-6 lg:py-0">
+			<div className="mx-auto flex min-h-screen max-w-2xl flex-col place-content-center px-8 py-16 lg:px-6 lg:py-0">
 				<main>
 					<section>
 						<h1 className="text-6xl font-bold leading-tight">

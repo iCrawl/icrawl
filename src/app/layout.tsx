@@ -5,6 +5,7 @@ import { Providers } from "./providers";
 
 import "@unocss/reset/tailwind-compat.css";
 import "~/styles/global.css";
+import "overlayscrollbars/overlayscrollbars.css";
 
 export const viewport: Viewport = {
 	themeColor: [
@@ -53,6 +54,11 @@ export const metadata: Metadata = {
 		siteName: "crawl.gg",
 		type: "website",
 		title: "crawl.gg",
+	},
+
+	twitter: {
+		card: "summary_large_image",
+		creator: "@iCrawlToGo",
 	},
 
 	other: {

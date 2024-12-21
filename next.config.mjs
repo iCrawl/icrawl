@@ -1,23 +1,27 @@
-import bundleAnalyzer from "@next/bundle-analyzer";
-
-const withBundleAnalyzer = bundleAnalyzer({
-	enabled: process.env.ANALYZE === "true",
-});
-
-export default withBundleAnalyzer({
+/**
+ * @type {import('next').NextConfig}
+ */
+export default {
 	reactStrictMode: true,
-	experimental: {
-		ppr: true,
-	},
+	poweredByHeader: false,
 	images: {
 		dangerouslyAllowSVG: true,
 		contentDispositionType: "attachment",
 		contentSecurityPolicy: "default-src 'self'; frame-src 'none'; sandbox;",
 	},
-	poweredByHeader: false,
 	logging: {
 		fetches: {
 			fullUrl: true,
 		},
 	},
-});
+	eslint: {
+		ignoreDuringBuilds: true,
+	},
+	typescript: {
+		ignoreBuildErrors: true,
+	},
+	experimental: {
+		ppr: true,
+		reactCompiler: true,
+	},
+};

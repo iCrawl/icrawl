@@ -1,20 +1,23 @@
-import { dirname } from "node:path";
-import { fileURLToPath } from "node:url";
-import unocss from "@unocss/eslint-plugin";
-import common from "eslint-config-neon/flat/common.js";
-import edge from "eslint-config-neon/flat/edge.js";
-import next from "eslint-config-neon/flat/next.js";
-import node from "eslint-config-neon/flat/node.js";
-import prettier from "eslint-config-neon/flat/prettier.js";
-import react from "eslint-config-neon/flat/react.js";
-import typescript from "eslint-config-neon/flat/typescript.js";
+import { common, edge, next, node, prettier, react, typescript } from "eslint-config-neon";
+import { createTypeScriptImportResolver } from "eslint-import-resolver-typescript";
+import reactCompiler from "eslint-plugin-react-compiler";
 import merge from "lodash.merge";
+import tseslint from "typescript-eslint";
 
 const commonFiles = "{js,mjs,cjs,ts,mts,cts,jsx,tsx}";
+const commonJSX = "{jsx,tsx}";
 
 const commonRuleset = merge(...common, { files: [`**/*${commonFiles}`] });
 
-const nodeRuleset = merge(...node, { files: [`**/*${commonFiles}`] });
+const nodeRuleset = merge(...node, {
+	files: [`**/*${commonFiles}`],
+	rules: {
+		"no-restricted-globals": 0,
+		"n/prefer-global/url": 0,
+		"n/prefer-global/url-search-params": 0,
+		"n/prefer-global/process": 0,
+	},
+});
 
 const typeScriptRuleset = merge(...typescript, {
 	files: [`**/*${commonFiles}`],
@@ -22,11 +25,10 @@ const typeScriptRuleset = merge(...typescript, {
 		parserOptions: {
 			warnOnUnsupportedTypeScriptVersion: false,
 			allowAutomaticSingleRunInference: true,
-			project: [`${dirname(fileURLToPath(import.meta.url))}/tsconfig.eslint.json`],
+			project: ["tsconfig.eslint.json"],
 		},
 	},
 	rules: {
-		"@typescript-eslint/consistent-type-definitions": [2, "interface"],
 		"@typescript-eslint/naming-convention": [
 			2,
 			{
@@ -40,44 +42,42 @@ const typeScriptRuleset = merge(...typescript, {
 		],
 	},
 	settings: {
-		"import/resolver": {
-			typescript: {
+		"import-x/resolver-next": [
+			createTypeScriptImportResolver({
 				alwaysTryTypes: true,
-				project: [`${dirname(fileURLToPath(import.meta.url))}/tsconfig.eslint.json`],
-			},
-		},
+				project: ["tsconfig.eslint.json"],
+			}),
+		],
 	},
 });
 
 const reactRuleset = merge(...react, {
-	files: [`**/*${commonFiles}`],
-	plugins: { "@unocss": unocss },
+	files: [`src/**/*${commonJSX}`, "src/**/*ts"],
+	plugins: {
+		"react-compiler": reactCompiler,
+	},
 	rules: {
-		"@unocss/order": 2,
 		"@next/next/no-html-link-for-pages": 0,
 		"react/react-in-jsx-scope": 0,
 		"react/jsx-filename-extension": [1, { extensions: [".tsx"] }],
+		"react/jsx-handler-names": 0,
+		"react-refresh/only-export-components": [0, { allowConstantExport: true }],
+		"react-compiler/react-compiler": 2,
+		"jsdoc/no-bad-blocks": 0,
+		"tsdoc/syntax": 0,
+		"@typescript-eslint/unbound-method": 0,
 	},
 });
 
-const nextRuleset = merge(...next, { files: [`**/*${commonFiles}`] });
+const nextRuleset = merge(...next, { files: [`src/**/*${commonFiles}`] });
 
-const edgeRuleset = merge(...edge, { files: [`**/*${commonFiles}`] });
+const edgeRuleset = merge(...edge, { files: [`src/**/*${commonFiles}`] });
 
 const prettierRuleset = merge(...prettier, { files: [`**/*${commonFiles}`] });
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
-export default [
+export default tseslint.config(
 	{
-		ignores: [
-			"**/node_modules/",
-			".git/",
-			"**/dist/",
-			"**/template/",
-			"**/coverage/",
-			"**/storybook-static/",
-			"**/.next/",
-		],
+		ignores: ["**/node_modules/", ".git/", "**/dist/", "**/coverage/", "**/.next/"],
 	},
 	commonRuleset,
 	nodeRuleset,
@@ -86,4 +86,4 @@ export default [
 	nextRuleset,
 	edgeRuleset,
 	prettierRuleset,
-];
+);

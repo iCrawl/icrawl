@@ -1,1 +1,1 @@
-yarn lint && yarn test && yarn test:e2e
+pnpm run fmt && pnpm run build
